@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 
 export const ThemeContext= createContext();
-const INSTALE_STATE={darkMode: false};
+const INSTALE_STATE={darkMode: true};
 
 const themeReducer= (state, action)=>{
     switch(action.type){

@@ -19,7 +19,7 @@
 .intro-left-wrapper{
     padding:50px;
     height: 50%;
-    /* display: flex; */
+     display: flex; 
     flex-direction: column;
     justify-content: space-between;
 }
@@ -98,3 +98,29 @@
     /* animation: move 10s ease-in-out infinite alternate; */
 }
 
+
+/* Parie media query */
+
+@media screen and (max-width:480px) {
+   .intro{
+       flex-direction: column;
+   } 
+
+   .intro-left-wrapper{
+       padding: 10px;
+       align-items: center;
+       justify-content: center;
+       text-align: center;
+       height: 100%;
+   }
+
+.i-desc{
+    display: none;
+}
+
+.intro-name{
+    font-size: 30px;
+}
+
+
+}

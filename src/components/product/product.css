@@ -14,6 +14,7 @@
     align-items: center;
     position: sticky;
     z-index: 2;
+    background-color: white;
 }
 
 .p-circle{
@@ -31,4 +32,13 @@
 
 .pr:hover .p-img{
     transform: translateY(-100%);
+}
+
+
+
+@media screen and (max-width: 480px) {
+   .pr{
+       width: 40%;
+       height: 20vh;
+   }
 }

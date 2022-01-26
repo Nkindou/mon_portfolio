@@ -28,3 +28,21 @@
     overflow: hidden;
 }
 
+
+@media screen and (max-width: 480px) {
+    .pl{
+        padding: 20px;
+        margin-top: 40%;
+    }
+
+    .pl-text{
+        width: 100%;
+        
+    }
+    .pro-desc{
+       text-align: justify;
+       
+       text-justify:inter-word;
+       width: 100%;
+    }
+}

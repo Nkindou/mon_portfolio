@@ -16,12 +16,13 @@
 
 .a-bg{
     background-color: #fea117;
-    font-size: 200px;
     position: absolute;
     top: 90px;
     left: 50px;
     width: 70%;
+    height: 50%;
     border-radius: 30px;
+    overflow: hidden;
     
 }
 
@@ -57,17 +58,68 @@
 
 .a-btn{
     background-color:#fea117;
-    width: 35%;
+    width: 40%;
     height: 40px;
     cursor: pointer;
     border-radius: 30px;
+    
 }
 
 .a-btn a{
     text-decoration: none;
     color: white;
     font-size: 20px;
-    margin: 10px 25px;
+    margin: 40px 60px;
     bottom: 50px;
 }
 
+
+@media screen and (max-width:480px){
+    .a{
+        flex-direction: column;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .a-left{
+        width: 100%;
+    }
+
+    .a-bg{
+        display: none;
+    }
+
+    .a-card{
+        height: 40vh;
+    }
+
+    .a-right{
+        padding: 10px;
+       
+        
+    }
+
+    .a-sub{
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .a-desc{
+        text-justify:inter-word;
+        text-align: justify;
+    }
+
+    .a-btn{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 60%;
+        margin-left: 70px;
+    }
+
+    .a-btn a{
+        margin: 20px 30px;
+    }
+
+
+}

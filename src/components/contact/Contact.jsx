@@ -1,29 +1,41 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./contact.css";
 import call from "../../image/call.png";
 import email from "../../image/email.png";
 import gps from "../../image/gps.png";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import { ThemeContext } from "../../context";
 
 const Contact = () => {
 
-    const form= useRef();
-    // Affichage envois du message iniatialise en faulse
-    const [save, setSave]= useState(false);
+  const theme = useContext(ThemeContext);
+  const darkMode= theme.state.darkMode;
 
-    const sendEmail=(e)=>{
-        e.preventDefault()
+  const form = useRef();
+  // Affichage envois du message iniatialise en faulse
+  const [save, setSave] = useState(false);
 
-        emailjs.sendForm("service_77z9gsa",
-         "template_2ga3ox6", form.current,
-          "user_HoAtD1QYC3PLVHfJDrQHS")
-      .then((result) => {
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_77z9gsa",
+        "template_2ga3ox6",
+        form.current,
+        "user_HoAtD1QYC3PLVHfJDrQHS"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
           setSave(true);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
-    }
+        }
+      );
+  };
+
+  const envoiMsg = save && "Message envoyer avec success!";
 
   return (
     <div className="c">
@@ -54,17 +66,21 @@ const Contact = () => {
             Deleniti quae nisi magnam officiis necessitatibus? Nemo harum
           </p>
           <form ref={form} onSubmit={sendEmail}>
-      
-      <input type="text" placeholder="Name" name="user_name" />
-      
-      <input type="text" placeholder="Objet" name="user_objet" />
-      
-      <input type="email" placeholder="email" name="user_email" />
-   
-      <textarea placeholder="Message" name="message" rows={5} />
-      <input type="submit" value="Send" className="button" />
-      {save && 'Message envoyer avec success!'}
-      </form>
+            <input type="text"  style={{backgroundColor: darkMode && "#333"}} required placeholder="Name" name="user_name" />
+
+            <input type="text"  style={{backgroundColor: darkMode && "#333"}} required placeholder="Objet" name="user_objet" />
+
+            <input style={{backgroundColor: darkMode && "#333"}} 
+              type="email"
+              required
+              placeholder="email"
+              name="user_email"
+            />
+
+            <textarea style={{backgroundColor: darkMode && "#333"}} placeholder="Message" name="message" rows={5} />
+            <input type="submit" value="Send" className="button" />
+            {envoiMsg}
+          </form>
         </div>
       </div>
     </div>
